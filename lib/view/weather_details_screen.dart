@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/services/weather_services.dart';
 
 class WeatherDeatailsScreen extends StatelessWidget {
   const WeatherDeatailsScreen({super.key});
@@ -6,7 +7,7 @@ class WeatherDeatailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
+      // backgroundColor: Colors.deepPurpleAccent,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         centerTitle: true,
@@ -22,6 +23,33 @@ class WeatherDeatailsScreen extends StatelessWidget {
                 height: 5,
               ),
               Text('date time'),
+              SizedBox(
+                height: 80,
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text('image'),
+                    // Image(image: AssetImage('')),
+
+                    Text('temp'),
+
+                    Column(
+                      children: [
+                        Text('max temp'),
+                        Text('min temp'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 80),
+              Column(
+                children: [
+                  Text('temp condition'),
+                ],
+              )
             ],
           ),
         ),

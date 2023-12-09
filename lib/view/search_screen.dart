@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/weathet_model.dart';
+import 'package:weather_app/services/weather_services.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -14,7 +17,11 @@ class SearchScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Center(
             child: TextField(
-          onSubmitted: (userInput) {},
+          onSubmitted: (userInput) async {
+            WeatherModel weatherModel =
+                await WeatherServices(Dio()).getWeather(cityName: userInput);
+            print(weatherModel);
+          },
           decoration: InputDecoration(
               label: const Text('search'),
               hintText: 'enter the countary',

@@ -18,9 +18,8 @@ class SearchScreen extends StatelessWidget {
         child: Center(
             child: TextField(
           onSubmitted: (userInput) async {
-            WeatherModel weatherModel =
+            weatherModel =
                 await WeatherServices(Dio()).getWeather(cityName: userInput);
-            print(weatherModel);
           },
           decoration: InputDecoration(
               label: const Text('search'),
@@ -36,3 +35,5 @@ class SearchScreen extends StatelessWidget {
     );
   }
 }
+
+WeatherModel? weatherModel;

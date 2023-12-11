@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/view/search_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _MyHomePageState();
@@ -16,7 +16,6 @@ class _MyHomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text(widget.title),
         actions: [
           IconButton(
               onPressed: () {

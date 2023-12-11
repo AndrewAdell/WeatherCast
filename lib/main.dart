@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SearchScreen(),
+      home: weatherModel == null ? HomePage() : WeatherDeatailsScreen(),
       //  HomePage(title: 'Flutter Demo Home Page') ,
     );
   }

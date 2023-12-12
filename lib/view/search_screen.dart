@@ -17,10 +17,7 @@ class SearchScreen extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Center(
             child: TextField(
-          onSubmitted: (userInput) async {
-            weatherModel =
-                await WeatherServices(Dio()).getWeather(cityName: userInput);
-          },
+          onSubmitted: (userInput) async {},
           decoration: InputDecoration(
               label: const Text('search'),
               hintText: 'enter the countary',

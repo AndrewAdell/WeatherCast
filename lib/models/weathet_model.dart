@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class WeatherModel {
   String? cityName;
-  String? date;
+  DateTime? date;
   String? image;
   String? weatherCondition;
   double? minTemp;
@@ -23,7 +23,7 @@ class WeatherModel {
   factory WeatherModel.fromJson(json) {
     return WeatherModel(
       cityName: json["location"]["name"],
-      date: json["current"]["last_updated"],
+      date: DateTime.parse(json["current"]["last_updated"]),
       image: json["forecast"]["forecastday"][0]["day"]["condition"]["icon"],
       maxTemp: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
       minTemp: json["forecast"]["forecastday"][0]["day"]["mintemp_c"],

@@ -1,7 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weathet_model.dart';
-import 'package:weather_app/services/weather_services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -14,10 +13,14 @@ class SearchScreen extends StatelessWidget {
         title: const Text('search city'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Center(
             child: TextField(
-          onSubmitted: (userInput) async {},
+          onSubmitted: (userInput) async {
+            var getWeatherCubit = BlocProvider.of<GetWeatherCubit>(context);
+            getWeatherCubit.getWeather(cityName: userInput);
+            Navigator.pop(context);
+          },
           decoration: InputDecoration(
               label: const Text('search'),
               hintText: 'enter the countary',
@@ -32,5 +35,3 @@ class SearchScreen extends StatelessWidget {
     );
   }
 }
-
-WeatherModel? weatherModel;
